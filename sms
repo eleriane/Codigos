@@ -1,0 +1,17 @@
+  static void Main(string[] args)
+        {
+            // Find your Account Sid and Token at twilio.com/console
+            const string accountSid = "AC65510719f0fc57b3ea3f88ebe4dba2f6";
+            //AC65510719f0fc57b3ea3f88ebe4dba2f6
+            const string authToken = "70d635d6d31ec04247e3ede8b14d5959";
+
+            TwilioClient.Init(accountSid, authToken);
+
+            var message = MessageResource.Create(
+                body: "Tem pão quentinho, corre logo para a Casa Colonial :)",
+                from: new Twilio.Types.PhoneNumber("+19705078628"),
+                to: new Twilio.Types.PhoneNumber("+5547988073152")
+            );
+
+            Console.WriteLine(message.Sid);
+        }
